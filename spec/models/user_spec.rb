@@ -1,6 +1,9 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe User, type: :model do
+require_relative '../../app/models/user'
+require_relative '../../app/models/widget'
+
+RSpec.describe User, type: [:model, :db] do
   let(:user) { User.new(name: 'Joe') }
 
   describe '#say_hello' do
