@@ -1,6 +1,5 @@
+require 'support/load'
 require 'spec_helper'
-
-require_relative '../../app/controllers/users_controller'
 
 RSpec.describe UsersController, type: :rack do
   include Rack::Test::Methods

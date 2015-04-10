@@ -1,7 +1,5 @@
+require 'support/load/models'
 require 'spec_helper'
-
-require_relative '../../app/models/user'
-require_relative '../../app/models/widget'
 
 RSpec.describe User, type: [:model, :db] do
   let(:user) { User.new(name: 'Joe') }

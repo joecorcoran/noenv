@@ -1,8 +1,3 @@
-require_relative './application_controller'
-
-require_relative '../models/user'
-require_relative '../models/widget'
-
 class UsersController < ApplicationController
 
   def index
