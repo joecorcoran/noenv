@@ -1,18 +1,25 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe UsersController, type: :controller do
+require_relative '../../app/controllers/users_controller'
+
+RSpec.describe UsersController, type: :rack do
+  include Rack::Test::Methods
 
   describe 'GET index' do
+    let(:app) { UsersController.action(:index) }
+
     it 'is successful' do
       get :index
-      expect(response).to be_ok
+      expect(last_response).to be_ok
     end
   end
 
   describe 'GET new' do
+    let(:app) { UsersController.action(:new) }
+
     it 'is not accessible' do
       get :new
-      expect(response).to be_unauthorized
+      expect(last_response).to be_unauthorized
     end
   end
 

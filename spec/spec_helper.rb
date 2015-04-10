@@ -48,6 +48,11 @@ RSpec.configure do |config|
     ActiveRecord::Base.establish_connection(config['test'])
   end
 
+  config.before(type: :rack) do |example|
+    require 'rack/test'
+    described_class.append_view_path('app/views')
+  end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
