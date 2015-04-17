@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :unauthorized, only: :new
 
   def index
     @users = User.all
@@ -6,7 +7,5 @@ class UsersController < ApplicationController
   end
 
   def new
-    head :unauthorized
   end
-
 end
