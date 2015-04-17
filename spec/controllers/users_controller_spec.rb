@@ -2,8 +2,6 @@ require 'support/load'
 require 'spec_helper'
 
 RSpec.describe UsersController, type: :rack do
-  include Rack::Test::Methods
-
   describe 'GET index' do
     let(:app) { UsersController.action(:index) }
 
@@ -21,5 +19,4 @@ RSpec.describe UsersController, type: :rack do
       expect(last_response).to be_unauthorized
     end
   end
-
 end

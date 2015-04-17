@@ -18,6 +18,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'support/logger'
+require 'rack/test'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -49,9 +50,10 @@ RSpec.configure do |config|
   end
 
   config.before(type: :rack) do |example|
-    require 'rack/test'
     described_class.append_view_path('app/views')
   end
+
+  config.include(Rack::Test::Methods, type: :rack)
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
